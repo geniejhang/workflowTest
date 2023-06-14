@@ -18,7 +18,8 @@ jobs:
          mkdir build
          mv *.tar.gz build
       - name: Publish to release page
-        uses: fnkr/github-action-ghr@v1
-        env:
-          GHR_PATH: build/
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@latest
+        with:
+          files: build/*.tar.gz
+          body: My Test
+          name: My
