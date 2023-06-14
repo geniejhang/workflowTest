@@ -16,9 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Create tarball
-        run: tar -czf release-$GITHUB_REF_NAME-buster.tar.gz mine
-      - name: Publish to release page
         run: |
-          echo "ARCHIVE=$(ls *.tar.gz)" >> $GITHUB_ENV
-          gh release create ${{ github.ref_name }} --title ${{ github.ref_name }} --generate-notes
-          gh release upload ${{ github.ref_name }} $ARCHIVE
+         tar -czf release-$GITHUB_REF_NAME-buster.tar.gz mine
+         mkdir build
+         mv *.tar.gz build
+      - name: Publish to release page
+        uses: fnkr/github-action-ghr@v1
+        env:
+          GHR_PATH: build/
+          GITHUB_TOKEN: $GITHUB_TOKEN
