@@ -1,8 +1,5 @@
 name: test workflow
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 on:
   push:
     tags:
