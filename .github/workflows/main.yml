@@ -18,7 +18,7 @@ jobs:
          mkdir build
          mv *.tar.gz build
       - name: Publish to release page
-        uses: softprops/action-gh-release@latest
+        uses: softprops/action-gh-release@v0.1.15
         with:
           files: build/*.tar.gz
           body: My Test
