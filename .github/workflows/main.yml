@@ -18,6 +18,18 @@ jobs:
          mkdir build
          mv *.tar.gz build
          echo "This is my body!" > haha
+      - name: Upload tarball
+        uses: actions/upload-artifact@v3
+        with:
+          name: thisversion
+          path: build/release-$GITHUB_REF_NAME-buster.tar.gz
+      - name: Download tarball
+        uses: actions/download-artifact@v3
+        with:
+          name: thisversion
+        run: |
+          cp release-$GITHUB_REF_NAME-buster.tar.gz ha.tar.gz
+          mv ha.tar.gz build/
       - name: Publish to release page
         uses: softprops/action-gh-release@v0.1.15
         with:
