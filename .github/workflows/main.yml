@@ -27,6 +27,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: thisversion
+      - name: Change name
         run: |
           cp release-$GITHUB_REF_NAME-buster.tar.gz ha.tar.gz
           mv ha.tar.gz build/
