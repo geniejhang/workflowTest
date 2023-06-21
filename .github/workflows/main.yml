@@ -22,7 +22,9 @@ jobs:
           path: build/*.tar.gz
       - name: Remove exiting one
         run: |
+          ls
           rm -rf build
+          ls
       - name: Download tarball
         uses: actions/download-artifact@v3
         with:
@@ -30,7 +32,6 @@ jobs:
       - name: Change name
         run: |
           ls
-          ls build
       - name: Publish to release page
         uses: softprops/action-gh-release@v0.1.15
         with:
