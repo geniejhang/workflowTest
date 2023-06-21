@@ -22,15 +22,17 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: thisversion
-          path: build/release-$GITHUB_REF_NAME-buster.tar.gz
+          path: build/*.tar.gz
+      - name: Remove exiting one
+        run: |
+          rm -rf build
       - name: Download tarball
         uses: actions/download-artifact@v3
         with:
           name: thisversion
       - name: Change name
         run: |
-          cp release-$GITHUB_REF_NAME-buster.tar.gz ha.tar.gz
-          mv ha.tar.gz build/
+          cp build/release-$GITHUB_REF_NAME-buster.tar.gz build/ha.tar.gz
       - name: Publish to release page
         uses: softprops/action-gh-release@v0.1.15
         with:
