@@ -29,7 +29,8 @@ jobs:
           name: thisversion
       - name: Change name
         run: |
-          cp build/release-$GITHUB_REF_NAME-buster.tar.gz build/ha.tar.gz
+          ls
+          ls build
       - name: Publish to release page
         uses: softprops/action-gh-release@v0.1.15
         with:
