@@ -23,8 +23,9 @@ jobs:
       - name: Remove exiting one
         run: |
           rm -rf build
+          mkdir ho
       - name: Working dir
-        working-directory: ./build
+        working-directory: ./ho
         run: pwd
       - name: Download tarball
         uses: actions/download-artifact@v3
