@@ -34,10 +34,10 @@ jobs:
       - name: Change name
         run: |
           pwd
-          cp build/release-$GITHUB_REF_NAME-buster.tar.gz build/ha.tar.gz
+          cp release-$GITHUB_REF_NAME-buster.tar.gz ha.tar.gz
       - name: Publish to release page
         uses: softprops/action-gh-release@v0.1.15
         with:
-          files: build/*.tar.gz
+          files: *.tar.gz
           body_path: haha
           name: My
