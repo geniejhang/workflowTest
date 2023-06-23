@@ -26,12 +26,16 @@ jobs:
       - name: Remove exiting one
         run: |
           rm -rf build
+      - name: Working dir
+        working-directory: ./build
+        run: pwd
       - name: Download tarball
         uses: actions/download-artifact@v3
         with:
           name: thisversion
       - name: Change name
         run: |
+          pwd
           cp build/release-$GITHUB_REF_NAME-buster.tar.gz build/ha.tar.gz
       - name: Publish to release page
         uses: softprops/action-gh-release@v0.1.15
