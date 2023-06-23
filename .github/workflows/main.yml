@@ -38,6 +38,6 @@ jobs:
       - name: Publish to release page
         uses: softprops/action-gh-release@v0.1.15
         with:
-          files: *.tar.gz
+          files: ./*.tar.gz
           body_path: haha
           name: My
